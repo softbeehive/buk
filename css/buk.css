@@ -28,25 +28,33 @@ body {
 
 .buk-atmosphere {
     background: #d3d3d3;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: auto;
-    margin: 20px;
 }
 
 .buk-lithosphere {
     position: relative;
-    height: 100%;
+    min-height: 100%;
+}
+
+.buk-board {
+    padding: 20px 5%;
 }
 
 .buk-board-title {
-    width: 60%;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 24px;
+   /* font-size: 28px;
+    margin: 0 0 7px;*/
+}
+
+.buk-board-sub {
+    /*font-size: 22px;
+    margin: 0 0 7px;*/
+}
+
+.buk-board-content {
+    /*margin: 0 0 10px;*/
+}
+
+.buk-board-extra {
+
 }
 
 /* == Space navigation == */
@@ -54,7 +62,7 @@ body {
 .buk-to {
     display: block;
     position: absolute;
-    width: 10%;
+    width: 4%;
     height: 100%;
     top: 0;
 }
@@ -75,9 +83,10 @@ body {
 }
 
 .alpha i {
-    left: 10%;
+    left: 50%;
+    margin-left: -12px;
 }
 
 .omega i {
-    right: 10%;
+    right: 50%;
 }
