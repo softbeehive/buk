@@ -40,31 +40,58 @@ body {
 }
 
 .buk-board-title {
-   /* font-size: 28px;
-    margin: 0 0 7px;*/
+   
 }
 
 .buk-board-sub {
-    /*font-size: 22px;
-    margin: 0 0 7px;*/
+    
 }
 
 .buk-board-content {
-    /*margin: 0 0 10px;*/
+
 }
 
 .buk-board-extra {
 
 }
 
+/* == Sidebar menu == */
+
+.buk-menu {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 5;
+}
+
+.buk-menu-gate {
+    display: block;
+    width: 60px;
+    height: auto;
+    padding: 1em;
+}
+
+.buk-menu-bar {
+    display: block;
+    border-radius: 2px;
+    height: 5px;
+    margin-bottom: 7px;
+    background: #ffffff;
+}
+
+.buk-menu-expanded .buk-menu-gate:nth-child(1) {
+    transform: rotate(-45deg);
+}
+
 /* == Space navigation == */
 
 .buk-to {
     display: block;
-    position: absolute;
+    position: fixed;
     width: 4%;
     height: 100%;
-    top: 0;
+    bottom: 0;
+    z-index: 4;
 }
 
 .buk-to i {
