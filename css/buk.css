@@ -3,6 +3,37 @@
    Oleksandr Bystrikov, 2013
 */
 
+/* == Normalization == */
+
+html {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    height: 100%;
+    min-height: 100%;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a,
+a:focus,
+a:active {
+    outline: 0 none !important;
+}
+
+/* == Clearfix == */
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
 /* == Biosphere == */
 
 .buk-atmosphere {
