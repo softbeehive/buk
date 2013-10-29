@@ -78,22 +78,20 @@ a:active {
 .buk-menu {
     position: fixed;
     left: -240px;
-    top: 0px;
-    bottom: 60px;
+    top: 0;
     width: 300px;
-    overflow: hidden;
+    padding: 1em 2em 2em 2em;
     z-index: 5;
-    transition: transform 0.6s ease-in-out 0s, background-color 0.15s ease-in-out 0s;
 }
 
 .buk-menu-gate {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 0px;
     display: block;
     width: 60px;
     height: auto;
-    padding: 23px 1em;
+    padding: 1em;
 }
 
 .buk-menu-bar {
@@ -105,15 +103,19 @@ a:active {
     -moz-box-shadow:    0 2px 0 rgba(0, 0, 0, 0.08);
     -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
     box-shadow:         0 2px 0 rgba(0, 0, 0, 0.08);
-}
-
-.buk-menu-bar {
     transition: transform 0.1s ease-in-out 0s, box-shadow 0.1s ease-in-out 0s;
 }
 
 .buk-menu-expanded {
     background: #d3d3d3;
     left: 0;
+    -moz-box-shadow:    2px 2px 2px 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow:         2px 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.buk-menu-expanded .buk-menu-gate {
+    right: 5px;
 }
 
 .buk-menu-expanded .buk-menu-bar:nth-child(1) {
@@ -151,7 +153,12 @@ a:active {
 
 .buk-menu-index {
     display: none;
-    margin: 23px 0;
+    margin: 13px 0 0 0;
+    padding: 0;
+    counter-reset: li; /* Initiate a counter */
+    list-style: none; /* Remove default numbering */
+    *list-style: decimal; /* Keep using default numbering for IE6/7 */
+    
 }
 
 .buk-menu-expanded > .buk-menu-index {
