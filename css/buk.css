@@ -37,7 +37,7 @@ a:active {
 /* == Biosphere == */
 
 .buk-atmosphere {
-    background: #d3d3d3;
+    background: #038C73;
     min-height: 100%;
 }
 
@@ -47,6 +47,7 @@ a:active {
 
 .buk-board {
     padding: 1px 5%;
+    color: #FFFFFF;
 }
 
 .buk-board-2 {
@@ -68,9 +69,8 @@ a:active {
 
 .buk-board-extra {
     padding: 10px 0 0 0;
-    border-top: 2px solid #dbdbdb;
+    border-top: 1px solid #F2F1EB;
     font-size: 12px;
-    font-style: italic;
 }
 
 /* == Sidebar menu == */
@@ -107,11 +107,12 @@ a:active {
 }
 
 .buk-menu-expanded {
-    background: #d3d3d3;
+    background: #D8D9C1;
     left: 0;
-    -moz-box-shadow:    2px 2px 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow:         2px 2px 2px 0 rgba(0, 0, 0, 0.1);
+    color: #038C73;
+    -moz-box-shadow:    2px 2px 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow:         2px 2px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 .buk-menu-expanded .buk-menu-gate {
@@ -155,14 +156,46 @@ a:active {
     display: none;
     margin: 13px 0 0 0;
     padding: 0;
-    counter-reset: li; /* Initiate a counter */
-    list-style: none; /* Remove default numbering */
-    *list-style: decimal; /* Keep using default numbering for IE6/7 */
-    
+    counter-reset: li;
+    list-style: none;
+    *list-style: decimal;
 }
 
 .buk-menu-expanded > .buk-menu-index {
     display: block;
+}
+
+.buk-menu-index a {
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em 2em;
+    *padding: .4em;
+    margin: .5em 0;
+    background: #F2F1EB;
+    color: #038C73;
+    text-decoration: none;
+    border-radius: .3em; 
+}
+
+.buk-menu-index a:hover {
+    color: #025950;
+}
+
+.buk-menu-index a:before {
+    content: counter(li);
+    counter-increment: li;
+    position: absolute; 
+    left: -1em;
+    top: 50%;
+    margin-top: -1em;
+    background: #87ceeb;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    border: .3em solid #fff;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2em;
 }
 
 /* == Space navigation == */
@@ -173,7 +206,14 @@ a:active {
     width: 4%;
     height: 100%;
     bottom: 0;
+    color: #D8D9C1;
     z-index: 4;
+}
+
+.buk-to:hover,
+.buk-to:active,
+.buk-to:focus {
+    color: #F2F1EB;
 }
 
 .buk-to i {
