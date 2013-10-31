@@ -90,8 +90,9 @@ a:active {
 }
 
 .buk-menu-iwrap {
+    height: 85%;
     max-height: 85%;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 .buk-menu-gate {
