@@ -79,11 +79,19 @@ a:active {
     position: fixed;
     left: -240px;
     top: 0;
-    bottom: 0;
     width: 300px;
     padding: 12px 0 0 0;
-    overflow: auto;
     z-index: 5;
+}
+
+.buk-menu-hwrap,
+.buk-menu-iwrap {
+    padding: 0 15px 0 20px;
+}
+
+.buk-menu-iwrap {
+    max-height: 85%;
+    overflow: auto;
 }
 
 .buk-menu-gate {
@@ -111,6 +119,7 @@ a:active {
 .buk-menu-expanded {
     background: #D8D9C1;
     left: 0;
+    bottom: 0;
     color: #038C73;
     -moz-box-shadow:    2px 2px 2px 3px rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.1);
@@ -156,7 +165,7 @@ a:active {
 
 .buk-menu-index {
     display: none;
-    margin: 13px 0 0 0;
+    margin: 0;
     padding: 0;
     counter-reset: li;
     list-style: none;
@@ -179,7 +188,8 @@ a:active {
     border-radius: 2px; 
 }
 
-.buk-menu-index a:hover {
+.buk-menu-index a:hover,
+.buk-menu-index a.current {
     color: #025950;
 }
 
@@ -200,6 +210,12 @@ a:active {
     border-radius: 28px;
 }
 
+.buk-menu-index a.current:before,
+.buk-menu-index a:hover:before {
+    background: #038C73;
+    color: #FFFFFF;
+}
+
 /* == Space navigation == */
 
 .buk-to {
@@ -215,7 +231,7 @@ a:active {
 .buk-to:hover,
 .buk-to:active,
 .buk-to:focus {
-    color: #F2F1EB;
+    color: #FFFFFF;
 }
 
 .buk-to i {
