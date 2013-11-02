@@ -37,16 +37,54 @@ a:active {
 /* == Biosphere == */
 
 .buk-atmosphere {
-    background: #038C73;
-    min-height: 100%;
+    background: #025f4e;
+    border: 10px solid #9C7350;
+    height: 100%;
+    overflow: auto;
 }
 
-.buk-lithosphere {
-    position: relative;
+.buk-atmosphere:before,
+.buk-atmosphere:after,
+.buk-lithosphere:before,
+.buk-lithosphere:after {
+    display: none;
+    content: " ";
+    position: fixed;
+    background: yellow;
+    width: 40px;
+    height: 40px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.buk-atmosphere:before,
+.buk-atmosphere:after {
+    left: 0;
+    margin-left: -20px;
+}
+
+.buk-lithosphere:before,
+.buk-lithosphere:after {
+    right: 0;
+    margin-right: -20px;
+}
+
+.buk-atmosphere:before,
+.buk-lithosphere:before {
+    top: 0;
+    margin-top: -20px;
+}
+
+.buk-atmosphere:after,
+.buk-lithosphere:after {
+    bottom: 0;
+    margin-bottom: -20px;
 }
 
 .buk-board {
-    padding: 1px 5%;
+    padding: 1px 6% 35px;
     color: #FFFFFF;
 }
 
@@ -56,7 +94,7 @@ a:active {
 }
 
 .buk-board-title {
-   
+   margin-top: 16px;
 }
 
 .buk-board-sub {
@@ -84,11 +122,6 @@ a:active {
     z-index: 5;
 }
 
-.buk-menu-hwrap,
-.buk-menu-iwrap {
-    padding: 0 15px 0 20px;
-}
-
 .buk-menu-iwrap {
     height: 85%;
     max-height: 85%;
@@ -98,7 +131,7 @@ a:active {
 .buk-menu-gate {
     position: absolute;
     top: 10px;
-    right: 0px;
+    right: 0;
     display: block;
     width: 60px;
     height: auto;
@@ -125,6 +158,11 @@ a:active {
     -moz-box-shadow:    2px 2px 2px 3px rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.1);
     box-shadow:         2px 2px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.buk-menu-expanded .buk-menu-hwrap,
+.buk-menu-expanded .buk-menu-iwrap {
+    padding: 0 15px 0 20px;
 }
 
 .buk-menu-expanded .buk-menu-gate {
@@ -257,6 +295,7 @@ a:active {
 
 .omega i {
     right: 50%;
+    margin-right: -12px;
 }
 
 /* == Bottom navigation == */
@@ -265,7 +304,7 @@ a:active {
     position: fixed;
     bottom: 5px;
     left: 50%;
-    width: 45px;
+    width: 44px;
     height: 32px;
     margin: 0 0 0 -20px;
     overflow: hidden;   
@@ -277,8 +316,8 @@ a:active {
     position: absolute;
     top: -6px;
     left: 0;
-    width: 45px;
-    height: 45px;
+    width: 44px;
+    height: 44px;
     -webkit-transform:  rotate(45deg);
     -moz-transform:     rotate(45deg);
     -ms-transform:      rotate(45deg);
@@ -293,13 +332,13 @@ a:active {
     content: " ";
     display: block;
     position: absolute;
-    top: 0;
+    top: -1px;
     left: 50%;
     margin-left: -15px;
     width: 30px;
-    height: 32px;
-    border-top: 2px solid #025950;
-    border-bottom: 2px solid #025950;
+    height: 34px;
+    border-top: 3px solid #025950;
+    border-bottom: 3px solid #025950;
     z-index: 2;
 }
 
@@ -309,7 +348,7 @@ a:active {
     position: absolute;
     top: 50%;
     left: 0;
-    width: 45px;
+    width: 44px;
     height: 17px;
     margin-top: -8px;
     border-left: 2px solid #025950;
@@ -319,7 +358,7 @@ a:active {
 
 .buk-navi-enter {
     position: absolute;
-    width: 45px;
+    width: 44px;
     height: 32px;
     padding: 6px 12px;
     line-height: 18px;
@@ -329,3 +368,23 @@ a:active {
     z-index: 3;
 }
 
+.buk-navi-enter:focus {
+    border: none;
+    outline: none;
+}
+
+/* == Adaptive design == */
+
+@media (max-width: 979px) {
+    .buk-board {
+        padding-left: 50px;
+    }
+
+    .buk-menu {
+        width: 290px;
+    }
+
+    .buk-menu-gate {
+        width: 50px;
+    }
+}
