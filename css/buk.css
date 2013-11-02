@@ -259,21 +259,73 @@ a:active {
     right: 50%;
 }
 
-
 /* == Bottom navigation == */
 
 .buk-navi {
     position: fixed;
-    bottom: 0;
+    bottom: 5px;
     left: 50%;
+    width: 45px;
+    height: 32px;
     margin: 0 0 0 -20px;
+    overflow: hidden;   
+}
+
+.buk-navi:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: -6px;
+    left: 0;
+    width: 45px;
+    height: 45px;
+    -webkit-transform:  rotate(45deg);
+    -moz-transform:     rotate(45deg);
+    -ms-transform:      rotate(45deg);
+    -o-transform:       rotate(45deg);
+    transform:          rotate(45deg);
+    background-color: #FFFFFF;
+    border: 2px solid #025950;
+    z-index: 1;
+}
+
+.buk-navi-inner:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -15px;
+    width: 30px;
+    height: 32px;
+    border-top: 2px solid #025950;
+    border-bottom: 2px solid #025950;
+    z-index: 2;
+}
+
+.buk-navi-inner:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 45px;
+    height: 17px;
+    margin-top: -8px;
+    border-left: 2px solid #025950;
+    border-right: 2px solid #025950;
+    z-index: 2;
 }
 
 .buk-navi-enter {
-    width: 40px;
-    height: 34px;
+    position: absolute;
+    width: 45px;
+    height: 32px;
     padding: 6px 12px;
     line-height: 18px;
     text-align: center;
     border: none;
+    background: transparent;
+    z-index: 3;
 }
+
