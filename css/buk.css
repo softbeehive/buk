@@ -296,17 +296,14 @@ a:active {
 
 .omega {
     right: 0;
-    text-align: right;
 }
 
 .alpha i {
     left: 50%;
-    margin-left: -12px;
 }
 
 .omega i {
-    right: 50%;
-    margin-right: -12px;
+    left: 0;
 }
 
 /* == Bottom navigation == */
