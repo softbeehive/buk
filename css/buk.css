@@ -44,57 +44,6 @@ a:active {
     overflow: auto;
 }
 
-.buk-atmosphere:before,
-.buk-atmosphere:after,
-.buk-lithosphere:before,
-.buk-lithosphere:after {
-    content: " ";
-    display: block;
-    position: fixed;
-    z-index: 1;
-}
-
-.buk-atmosphere:before,
-.buk-atmosphere:after {
-    width: 100%;
-    height: 16px;
-    background: url("../img/side-tb.jpg") repeat-x;
-}
-
-.buk-atmosphere:before {
-    top: 0px;
-    border-top: 1px solid #9C7350;
-    border-bottom: 1px solid #9C7350;
-}
-
-.buk-atmosphere:after {
-    bottom: 0px;
-    background-position: 0 100%;
-    border-top: 1px solid #9C7350;
-    border-bottom: 1px solid #9C7350;
-}
-
-.buk-lithosphere:before,
-.buk-lithosphere:after {
-    width: 16px;
-    height: 100%;
-    top: 0;
-    background: url("../img/side-lr.jpg") repeat-y;
-}
-
-.buk-lithosphere:before {
-    left: 0;
-    border-right: 1px solid #9C7350;
-    border-left: 1px solid #9C7350;
-}
-
-.buk-lithosphere:after {
-    right: 0;
-    background-position: 100% 0;
-    border-right: 1px solid #9C7350;
-    border-left: 1px solid #9C7350;
-}
-
 .buk-board {
     padding: 1px 6% 35px;
     color: #FFFFFF;
@@ -380,6 +329,54 @@ a:active {
 .buk-navi-enter:focus {
     border: none;
     outline: none;
+}
+
+/* == Frame == */
+
+.buk-frame {
+    position: fixed;
+    z-index: 1;
+}
+
+.buk-frame-t,
+.buk-frame-b {
+    width: 100%;
+    height: 16px;
+    background: url("../img/side-tb.jpg") repeat-x;
+}
+
+.buk-frame-t {
+    top: 0px;
+    border-top: 1px solid #9C7350;
+    border-bottom: 1px solid #9C7350;
+}
+
+.buk-frame-b {
+    bottom: 0px;
+    background-position: 0 100%;
+    border-top: 1px solid #9C7350;
+    border-bottom: 1px solid #9C7350;
+}
+
+.buk-frame-r,
+.buk-frame-l {
+    width: 16px;
+    height: 100%;
+    top: 0;
+    background: url("../img/side-lr.jpg") repeat-y;
+}
+
+.buk-frame-l {
+    left: 0;
+    border-right: 1px solid #9C7350;
+    border-left: 1px solid #9C7350;
+}
+
+.buk-frame-r {
+    right: 0;
+    background-position: 100% 0;
+    border-right: 1px solid #9C7350;
+    border-left: 1px solid #9C7350;
 }
 
 /* == Content related  == */
