@@ -4,7 +4,16 @@
 */
 
 jQuery(document).ready(function(){
-    $(".buk-menu-gate").on("click", function(){
+
+    // Switch slides
+    
+
+    // Sidebar navigation
+    $(".buk-menu-gate").click(function(){
         $(".buk-menu").toggleClass("buk-menu-expanded");
-    })
+    });
+
+    // Bottom navigation
+
+    // Multi slide
 });

@@ -45,8 +45,13 @@ a:active {
 }
 
 .buk-board {
+    display: none;
     padding: 1px 6% 35px;
     color: #FFFFFF;
+}
+
+.buk-board.active {
+    display: block;
 }
 
 .buk-board-2 {
