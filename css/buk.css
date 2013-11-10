@@ -44,7 +44,13 @@ a:active {
     overflow: auto;
 }
 
+.buk-lithosphere {
+    position: relative;
+    overflow: hidden;
+}
+
 .buk-board {
+    position: relative;
     display: none;
     padding: 1px 6% 35px;
     color: #FFFFFF;
@@ -193,7 +199,7 @@ a:active {
 }
 
 .buk-menu-index a:hover,
-.buk-menu-index a.current {
+.buk-menu-index a.active {
     color: #025950;
 }
 
@@ -214,7 +220,7 @@ a:active {
     border-radius: 28px;
 }
 
-.buk-menu-index a.current:before,
+.buk-menu-index a.active:before,
 .buk-menu-index a:hover:before {
     background: #038C73;
     color: #FFFFFF;
@@ -323,7 +329,7 @@ a:active {
     position: absolute;
     width: 44px;
     height: 32px;
-    padding: 6px 12px;
+    padding: 2px;
     line-height: 18px;
     text-align: center;
     border: none;
