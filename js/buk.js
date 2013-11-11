@@ -17,8 +17,8 @@ jQuery(document).ready(function(){
     $(".buk-menu-index a").click(function(e) {
         e.preventDefault();
 
-        var $target = $($(this).attr('href')),
-            $other = $target.siblings('.active');
+        var $target = $($(this).attr("href")),
+            $other = $target.siblings(".active");
 
         if (!$target.hasClass("active")) {
             $other.each(function(index, self) {
@@ -28,9 +28,9 @@ jQuery(document).ready(function(){
             
             $target.css({
                     right: -($target.width())
-                }).addClass('active').animate({
+                }).addClass("active").animate({
                     right: 0
-                }, 500);
+                }, 300);
         }
 
         // Close sidebar, resizing slide area to prevent overlapping is planned in future release
