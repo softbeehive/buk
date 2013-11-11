@@ -3,6 +3,7 @@
    Oleksandr Bystrikov, 2013
 */
 
+// Sidebar methods
 function bringSidebar() {
     $(".buk-menu").toggleClass("buk-menu-expanded");
 }
@@ -11,6 +12,7 @@ function closeSidebar() {
     $(".buk-menu").removeClass("buk-menu-expanded");
 }
 
+// Ready. Steady. Go!
 jQuery(document).ready(function(){
 
     // Switch slides

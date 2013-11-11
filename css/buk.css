@@ -45,24 +45,18 @@ a:active {
 }
 
 .buk-lithosphere {
-    position: relative;
+    padding: 1px 4% 40px 6%;
     overflow: hidden;
 }
 
 .buk-board {
     position: relative;
     display: none;
-    padding: 1px 6% 35px;
     color: #FFFFFF;
 }
 
 .buk-board.active {
     display: block;
-}
-
-.buk-board-2 {
-    float: left;
-    width: 45%;
 }
 
 .buk-board-title {
@@ -82,6 +76,28 @@ a:active {
     border-top: 1px solid #F2F1EB;
     font-size: 12px;
 }
+
+/* == Multislide #2 == */
+
+.buk-board-2 {
+    float: left;
+    width: 50%;
+}
+
+.buk-board:nth-child(2n-1) {
+    clear: left;
+}
+
+.buk-board:nth-child(2n-1) > .buk-board-article {
+    margin-right: 20px;
+}
+
+.buk-board:nth-child(2n) > .buk-board-article {
+    margin-left: 20px;
+}
+
+/* == Multislide #4 */
+
 
 /* == Sidebar menu == */
 
