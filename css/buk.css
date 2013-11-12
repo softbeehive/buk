@@ -77,26 +77,28 @@ a:active {
     font-size: 12px;
 }
 
-/* == Multislide #2 == */
+/* == Multislide x2 == */
 
 .buk-board-2 {
     float: left;
     width: 50%;
 }
 
-.buk-board:nth-child(2n-1) {
+.buk-board-2:nth-child(2n-1) {
     clear: left;
 }
 
-.buk-board:nth-child(2n-1) > .buk-board-article {
+.buk-board-2:nth-child(2n-1) > .buk-board-article {
     margin-right: 20px;
 }
 
-.buk-board:nth-child(2n) > .buk-board-article {
+.buk-board-2:nth-child(2n) > .buk-board-article {
     margin-left: 20px;
 }
 
-/* == Multislide #4 */
+/* == Multislide x3 */
+
+/* == Multislide x4 */
 
 
 /* == Sidebar menu == */
