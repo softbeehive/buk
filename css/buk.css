@@ -61,6 +61,7 @@ a:active {
 
 .buk-board.active {
     display: block;
+    left: 0;
 }
 
 .buk-board.next {
@@ -73,6 +74,10 @@ a:active {
 
 .buk-board.active.left {
     left: -100%;
+}
+
+.buk-board.next.left {
+    left: 0;
 }
 
 .buk-board-title {

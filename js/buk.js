@@ -12,57 +12,47 @@ function closeSidebar() {
     $(".buk-menu").removeClass("buk-menu-expanded");
 }
 
+// General slide switcher
+function switchSlide($target) { 
+    $other = $target.siblings(".active");
+    if (!$target.hasClass("active")) {
+        $other.each(function(index, self) {
+            var $this = $(this);
+            $this.addClass("left");
+        });
+        $target.addClass("next");
+        setTimeout(function (){
+            $target.addClass("left");
+        }, 50);
+        setTimeout(function (){
+            $target.addClass("active").removeClass("next left");
+            $other.removeClass("active left");
+        }, 600);        
+    }
+}
+
 // Ready. Steady. Go!
-jQuery(document).ready(function(){
+$(document).ready(function(){
 
-    // Switch slides
+    // Index menu switcher
     $(".buk-menu-index a").click(function(e) {
-        //set start point anywhere you want
-        var start = new Date();
-
         e.preventDefault();
-
-        var $target = $($(this).attr("href")),
-            $other = $target.siblings(".active");
-
-        if (!$target.hasClass("active")) {
-
-            $other.each(function(index, self) {
-                var $this = $(this);
-                $this.addClass("left");
-            });
-
-            $target.addClass("next left");
-
-            setTimeout(function (){
-                $target.addClass("active").removeClass("next left");
-                $other.removeClass("active left");
-            }, 600);
-
-            
-        }
-
-        // Close sidebar, resizing slide area to prevent overlapping is planned in future release
+        var $target = $($(this).attr("href"));
+        switchSlide($target);
         closeSidebar();
-
-        //when done,
-        var end = new Date();
-        //to profile milliseconds, just do 
-        var duration = end - start;
-        console.log(duration);
-
     });
 
-    // Sidebar navigation
-    $(".buk-menu-gate").click(function(){
-        bringSidebar();
-    });
-
-    // Bottom navigation
+    // Bottom switcher
     $(".buk-navi-enter").keyup(function(e) {
         if(e.keyCode == 13){
-            console.log($(this).val());
+            var $target = $("#" + $(this).val());
+            switchSlide($target);
         }
+    });
+
+    // Show sidebar
+    $(".buk-menu-gate").click(function(){
+        bringSidebar();
     });
 
     // Multi slide
