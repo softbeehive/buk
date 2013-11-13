@@ -28,23 +28,18 @@ jQuery(document).ready(function(){
         if (!$target.hasClass("active")) {
 
             $other.each(function(index, self) {
-
                 var $this = $(this);
-                $this.css({
-                    left: 0
-                }).animate({
-                    left: -($(".buk-atmosphere").width())
-                }, 300);
+                $this.addClass("left");
             });
-            setTimeout(function (){
-                $other.removeClass("active").removeAttr("style");
-            }, 350);
 
-            $target.css({
-                right: -($(".buk-atmosphere").width())
-            }).addClass("active").animate({
-                right: 0
+            $target.addClass("next left");
+
+            setTimeout(function (){
+                $target.addClass("active").removeClass("next left");
+                $other.removeClass("active left");
             }, 600);
+
+            
         }
 
         // Close sidebar, resizing slide area to prevent overlapping is planned in future release

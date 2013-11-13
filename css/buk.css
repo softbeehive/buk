@@ -45,18 +45,34 @@ a:active {
 }
 
 .buk-lithosphere {
-    padding: 1px 4% 40px 6%;
+    padding: 0px;
+    margin: 0px 4% 40px 6%;
+    position: relative;
     overflow: hidden;
 }
 
 .buk-board {
-    position: relative;
     display: none;
+    position: relative;
     color: #FFFFFF;
+    transition: left 0.6s ease-in-out 0s;
+    width: 100%;
 }
 
 .buk-board.active {
     display: block;
+}
+
+.buk-board.next {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+}
+
+.buk-board.active.left {
+    left: -100%;
 }
 
 .buk-board-title {
