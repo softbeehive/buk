@@ -6,6 +6,13 @@
 // Sidebar methods
 function bringSidebar() {
     $(".buk-menu").toggleClass("buk-menu-expanded");
+
+    var canhref = "#" + $(".buk-board.active").attr("id");
+        $candidate = $(".buk-menu-index a[href="+ canhref +"]"),
+        $past = $(".buk-menu-index a.active").not($candidate);
+    // Highlight recent
+    $candidate.addClass("active");
+    $past.removeClass("active");
 }
 
 function closeSidebar() {
@@ -49,6 +56,10 @@ $(document).ready(function(){
             switchSlide($target);
         }
     });
+
+    // Arrow switcher
+
+    // Keyboard switcher
 
     // Show sidebar
     $(".buk-menu-gate").click(function(){

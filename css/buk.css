@@ -100,20 +100,20 @@ a:active {
 
 /* == Multislide x2 == */
 
-.buk-board-2 {
+.x2 {
     float: left;
     width: 50%;
 }
 
-.buk-board-2:nth-child(2n-1) {
+.x2:nth-child(2n-1) {
     clear: left;
 }
 
-.buk-board-2:nth-child(2n-1) > .buk-board-article {
+.x2:nth-child(2n-1) > .buk-board-article {
     margin-right: 20px;
 }
 
-.buk-board-2:nth-child(2n) > .buk-board-article {
+.x2:nth-child(2n) > .buk-board-article {
     margin-left: 20px;
 }
 
