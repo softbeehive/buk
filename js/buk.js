@@ -3,43 +3,62 @@
    Oleksandr Bystrikov, 2013
 */
 
-// Sidebar methods
-function bringSidebar() {
-    $(".buk-menu").toggleClass("buk-menu-expanded");
-
-    var canhref = "#" + $(".buk-board.active").attr("id");
-        $candidate = $(".buk-menu-index a[href="+ canhref +"]"),
-        $past = $(".buk-menu-index a.active").not($candidate);
-    // Highlight recent
-    $candidate.addClass("active");
-    $past.removeClass("active");
-}
-
-function closeSidebar() {
-    $(".buk-menu").removeClass("buk-menu-expanded");
-}
-
 // General slide switcher
 function switchSlide($target) { 
-    $other = $target.siblings(".active");
+    var $other = $target.siblings(".active"),
+        actid = $target.attr("id");
     if (!$target.hasClass("active")) {
         $other.each(function(index, self) {
             var $this = $(this);
             $this.addClass("left");
         });
         $target.addClass("next");
-        setTimeout(function (){
+        setTimeout(function() {
             $target.addClass("left");
         }, 50);
-        setTimeout(function (){
+        setTimeout(function() {
             $target.addClass("active").removeClass("next left");
             $other.removeClass("active left");
-        }, 600);        
+        }, 400);        
     }
+    setTimeout(function() {
+        syncNav(actid);
+        syncSidebar();
+    }, 410);
+}
+
+// Sidebar methods
+function syncSidebar() {
+    var canhref = "#" + $(".buk-board.active").attr("id"),
+        $candidate = $(".buk-menu-index a[href="+ canhref +"]"),
+        $past = $(".buk-menu-index a.active").not($candidate);
+    $candidate.addClass("active");
+    $past.removeClass("active");
+}
+
+function bringSidebar() {
+    $(".buk-menu").toggleClass("buk-menu-expanded");
+}
+
+function closeSidebar() {
+    $(".buk-menu").removeClass("buk-menu-expanded");
+}
+
+// Nav input syncronizer
+function syncNav(actid) {
+    var nav = $(".buk-navi-enter").val();
+    if (nav != actid && actid != null) {
+        $(".buk-navi-enter").val(actid);
+    };
 }
 
 // Ready. Steady. Go!
 $(document).ready(function(){
+
+    // Show sidebar
+    $(".buk-menu-gate").click(function(){
+        bringSidebar();
+    });
 
     // Index menu switcher
     $(".buk-menu-index a").click(function(e) {
@@ -57,14 +76,26 @@ $(document).ready(function(){
         }
     });
 
-    // Arrow switcher
-
     // Keyboard switcher
-
-    // Show sidebar
-    $(".buk-menu-gate").click(function(){
-        bringSidebar();
+    $(document).keyup(function(ee) {
+        if(ee.keyCode == 37) {
+            var getid = parseInt($(".buk-board.active").attr("id"));
+            lid = getid - 1;
+            $target = $("#" + lid);
+            switchSlide($target);
+        }
+        else if(ee.keyCode == 39) {
+            var getid = parseInt($(".buk-board.active").attr("id"));
+            rid = getid + 1;
+            $target = $("#" + rid);
+            switchSlide($target);
+        }
     });
 
+    // Arrow switcher
+
     // Multi slide
+
+    // Initial load
+    syncNav(1);
 });
