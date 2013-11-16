@@ -97,8 +97,8 @@ $(document).ready(function(){
 
     // Keyboard switcher
     $(document).keyup(function(ee){
-        if (ee.keyCode == 37 || ee.keyCode == 38) switchAlphaOmega("a");
-        else if (ee.keyCode == 39 || ee.keyCode == 40) switchAlphaOmega("o");
+        if (ee.keyCode == 37 || ee.keyCode == 40) switchAlphaOmega("a");
+        else if (ee.keyCode == 39 || ee.keyCode == 38) switchAlphaOmega("o");
     });
 
     // Multi slide

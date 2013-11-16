@@ -40,13 +40,13 @@ a:active {
     background: #025f4e;
     height: 100%;
     min-height: 100%;
-    margin-right: 16px;
+    margin: 0 16px;
     overflow: auto;
 }
 
 .buk-lithosphere {
     padding: 0px;
-    margin: 0px 4% 40px 6%;
+    margin: 0px 70px 40px 70px;
     position: relative;
     overflow: hidden;
 }
@@ -55,8 +55,8 @@ a:active {
     display: none;
     position: relative;
     color: #FFFFFF;
+    padding: 24px 0 0;
     transition: left 0.6s ease-in-out 0s;
-    width: 100%;
 }
 
 .buk-board.active {
@@ -81,15 +81,8 @@ a:active {
 }
 
 .buk-board-title {
-   
-}
-
-.buk-board-sub {
-
-}
-
-.buk-board-content {
-
+   margin-top: 0;
+   padding: 0;
 }
 
 .buk-board-extra {
@@ -128,14 +121,14 @@ a:active {
     position: fixed;
     left: -240px;
     top: 0;
-    width: 300px;
-    padding: 12px 0 0 0;
+    width: 305px;
+    padding: 12px 0 0;
     z-index: 5;
 }
 
 .buk-menu-gate {
     position: absolute;
-    top: 26px;
+    top: 28px;
     right: 0;
     display: block;
     width: 36px;
@@ -207,8 +200,8 @@ a:active {
 }
 
 .buk-menu-iwrap {
-    height: 85%;
-    max-height: 85%;
+    height: 88%;
+    max-height: 88%;
     overflow-y: auto;
 }
 
@@ -270,8 +263,9 @@ a:active {
 .buk-to {
     display: block;
     position: fixed;
-    width: 4%;
+    width: 55px;
     height: 100%;
+    top: 56px;
     bottom: 0;
     color: #D8D9C1;
     z-index: 4;
@@ -472,12 +466,8 @@ a:active {
 /* == Adaptive design == */
 
 @media (max-width: 979px) {
-    .buk-board {
-        padding-left: 60px;
-    }
-
     .buk-menu {
-        width: 290px;
+        width: 295px;
     }
 
     .buk-menu-gate {
