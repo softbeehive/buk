@@ -290,19 +290,20 @@ a:active {
 }
 
 .alpha {
-    left: 0;
+    left: 16px;
 }
 
 .omega {
-    right: 0;
+    right: 36px;
+    text-align: right;
 }
 
 .alpha i {
-    left: 50%;
+    left: 16px;
 }
 
 .omega i {
-    left: 0;
+    right: 16px;
 }
 
 /* == Bottom navigation == */
