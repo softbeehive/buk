@@ -4,31 +4,44 @@
 */
 
 // General slide switcher
-function switchSlide($target){ 
+function switchSlide($target) {
+    // Preparations
     var $other = $target.siblings(".active"),
-        actid = $target.attr("id");
+        actid = parseInt($target.attr("id")),
+        current = parseInt($(".buk-board.active").attr("id"));
+    // Detect direction
+    if (current > actid) {
+        var direction = "right",
+            order = "prev";
+    } 
+    else {
+        var direction = "left",
+            order = "next";
+    }
+    // Visual part
     if (!$target.hasClass("active")) {
-        $other.each(function(index, self){
+        $other.each(function(index, self) {
             var $this = $(this);
-            $this.addClass("left");
+            $this.addClass(direction);
         });
-        $target.addClass("next");
-        setTimeout(function(){
-            $target.addClass("left");
+        $target.addClass(order);
+        setTimeout(function() {
+            $target.addClass(direction);
         }, 50);
-        setTimeout(function(){
-            $target.addClass("active").removeClass("next left");
-            $other.removeClass("active left");
+        setTimeout(function() {
+            $target.addClass("active").removeClass(order +" "+ direction);
+            $other.removeClass(direction +" active");
         }, 400);        
     }
-    setTimeout(function(){
+    // Syncronizing
+    setTimeout(function() {
         syncNav(actid);
         syncSidebar();
     }, 410);
 }
 
 // Arrow and keyboard switcher
-function switchAlphaOmega(dir){
+function switchAlphaOmega(dir) {
     var getid = parseInt($(".buk-board.active").attr("id")),
         pid = 0;
     if (dir == "a") pid = getid - 1;
@@ -38,7 +51,7 @@ function switchAlphaOmega(dir){
 }
 
 // Sidebar methods
-function syncSidebar(){
+function syncSidebar() {
     var canhref = "#" + $(".buk-board.active").attr("id"),
         $candidate = $(".buk-menu-index a[href="+ canhref +"]"),
         $past = $(".buk-menu-index a.active").not($candidate);
@@ -47,31 +60,31 @@ function syncSidebar(){
 }
 
 // Show sidebar
-function bringSidebar(){
+function bringSidebar() {
     $(".buk-menu").toggleClass("buk-menu-expanded");
 }
 
 // Hide sidebar
-function closeSidebar(){
+function closeSidebar() {
     $(".buk-menu").removeClass("buk-menu-expanded");
 }
 
 // Nav input syncronizer
-function syncNav(actid){
+function syncNav(actid) {
     var nav = $(".buk-navi-enter").val();
     if (nav != actid && actid != null) $(".buk-navi-enter").val(actid);
 }
 
 // Ready. Steady. Go!
-$(document).ready(function(){
+$(document).ready(function() {
 
     // Show sidebar
-    $(".buk-menu-gate").click(function(){
+    $(".buk-menu-gate").click(function() {
         bringSidebar();
     });
 
     // Index menu switcher
-    $(".buk-menu-index a").click(function(e){
+    $(".buk-menu-index a").click(function(e) {
         e.preventDefault();
         var $target = $($(this).attr("href"));
         switchSlide($target);
@@ -79,7 +92,7 @@ $(document).ready(function(){
     });
 
     // Bottom switcher (on enter press)
-    $(".buk-navi-enter").keyup(function(e){
+    $(".buk-navi-enter").keyup(function(e) {
         if (e.keyCode == 13){
             var $target = $("#" + $(this).val());
             switchSlide($target);
@@ -87,16 +100,16 @@ $(document).ready(function(){
     });
 
     // Arrow switcher
-    $(".alpha").click(function(){
+    $(".alpha").click(function() {
         switchAlphaOmega("a");
     });
 
-    $(".omega").click(function(){
+    $(".omega").click(function() {
         switchAlphaOmega("o");
     });
 
     // Keyboard switcher
-    $(document).keyup(function(ee){
+    $(document).keyup(function(ee) {
         if (ee.keyCode == 37 || ee.keyCode == 40) switchAlphaOmega("a");
         else if (ee.keyCode == 39 || ee.keyCode == 38) switchAlphaOmega("o");
     });

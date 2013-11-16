@@ -64,19 +64,32 @@ a:active {
     left: 0;
 }
 
-.buk-board.next {
+.buk-board.next,
+.buk-board.prev {
     display: block;
     position: absolute;
     top: 0;
-    left: 100%;
     width: 100%;
+}
+
+.buk-board.next {
+    left: 100%;
+}
+
+.buk-board.prev {
+    left: -100%;
 }
 
 .buk-board.active.left {
     left: -100%;
 }
 
-.buk-board.next.left {
+.buk-board.active.right {
+    left: 100%;
+}
+
+.buk-board.next.left,
+.buk-board.prev.right {
     left: 0;
 }
 
@@ -119,7 +132,7 @@ a:active {
 
 .buk-menu {
     position: fixed;
-    left: -240px;
+    left: -230px;
     top: 0;
     width: 305px;
     padding: 12px 0 0;
@@ -129,7 +142,7 @@ a:active {
 .buk-menu-gate {
     position: absolute;
     top: 28px;
-    right: 0;
+    right: 10px;
     display: block;
     width: 36px;
     height: auto;
@@ -265,7 +278,6 @@ a:active {
     position: fixed;
     width: 55px;
     height: 100%;
-    top: 56px;
     bottom: 0;
     color: #D8D9C1;
     z-index: 4;
