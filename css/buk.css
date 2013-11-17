@@ -283,6 +283,10 @@ a:active {
     z-index: 4;
 }
 
+.buk-to.invisible {
+    display: none;
+}
+
 .buk-to:hover,
 .buk-to:active,
 .buk-to:focus {

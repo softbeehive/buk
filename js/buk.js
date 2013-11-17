@@ -8,7 +8,7 @@ function switchSlide($target) {
     // Preparations
     var $other = $target.siblings(".active"),
         actid = parseInt($target.attr("id")),
-        current = parseInt($(".buk-board.active").attr("id"));
+        current = getCurrent();
     // Detect direction
     if (current > actid) {
         var direction = "right",
@@ -42,7 +42,7 @@ function switchSlide($target) {
 
 // Arrow and keyboard switcher
 function switchAlphaOmega(dir) {
-    var getid = parseInt($(".buk-board.active").attr("id")),
+    var getid = getCurrent(),
         pid = 0;
     if (dir == "a") pid = getid - 1;
     else if (dir == "o") pid = getid + 1;
@@ -50,14 +50,12 @@ function switchAlphaOmega(dir) {
     switchSlide($target);
 }
 
-// Sidebar methods
-function syncSidebar() {
-    var canhref = "#" + $(".buk-board.active").attr("id"),
-        $candidate = $(".buk-menu-index a[href="+ canhref +"]"),
-        $past = $(".buk-menu-index a.active").not($candidate);
-    $candidate.addClass("active");
-    $past.removeClass("active");
+// Get current slide id
+function getCurrent() {
+    current = parseInt($(".buk-board.active").attr("id"));
+    return current;
 }
+/* ----------------------------------------------------------- */
 
 // Show sidebar
 function bringSidebar() {
@@ -68,12 +66,45 @@ function bringSidebar() {
 function closeSidebar() {
     $(".buk-menu").removeClass("buk-menu-expanded");
 }
+/* ----------------------------------------------------------- */
 
-// Nav input syncronizer
+// Syncronize sidebar
+function syncSidebar() {
+    var canhref = "#" + getCurrent(),
+        $candidate = $(".buk-menu-index a[href="+ canhref +"]"),
+        $past = $(".buk-menu-index a.active").not($candidate);
+    $candidate.addClass("active");
+    $past.removeClass("active");
+}
+
+// Syncronize bottom navigation
 function syncNav(actid) {
     var nav = $(".buk-navi-enter").val();
-    if (nav != actid && actid != null) $(".buk-navi-enter").val(actid);
+    if (actid !== '' && !isNaN(actid)) {
+        $(".buk-navi-enter").val(actid);
+        watchStep(actid);
+    }
+    else {
+        current = getCurrent();
+        $(".buk-navi-enter").val(current);
+    }
 }
+
+// Watch step
+function watchStep(actid) {
+    var last = parseInt($(".buk-board").last().attr("id")),
+        first = parseInt($(".buk-board").first().attr("id"));
+    if (actid == first) {
+        $(".alpha").addClass("invisible");
+        $(".omega").removeClass("invisible");
+    }
+    else if (actid == last) {
+        $(".omega").addClass("invisible");
+        $(".alpha").removeClass("invisible");
+    }
+    else $(".alpha, .omega").removeClass("invisible");
+}
+/* ----------------------------------------------------------- */
 
 // Ready. Steady. Go!
 $(document).ready(function() {
