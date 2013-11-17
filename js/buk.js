@@ -146,6 +146,9 @@ $(document).ready(function() {
     });
 
     // Multi slide
+    $(".buk-multi-gate").click(function() {
+        $(".buk-multi-choice").toggleClass("open");
+    });
 
     // Initial load
     syncNav(1);

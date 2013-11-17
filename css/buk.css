@@ -104,6 +104,64 @@ a:active {
     font-size: 12px;
 }
 
+/* == Multislide == */
+
+.buk-multi {
+    position: fixed;
+    top: 22px;
+    right: 40px;
+    z-index: 5;
+}
+
+.buk-multi-inner {
+    position: relative;
+}
+
+.buk-multi-gate {
+    display: block;
+    color: #D8D9C1;
+    font-size: 32px;
+    line-height: 1;
+}
+
+.buk-multi-gate:hover,
+.buk-multi-gate:focus,
+.buk-multi-gate:active,
+.buk-multi-choice .x-disable:hover,
+.buk-multi-choice .x-disable:focus,
+.buk-multi-choice .x-disable:active {
+    color: #FFFFFF;
+}
+
+.buk-multi-choice {
+    display: none;
+    position: absolute;
+    top: 44px;
+    left: 0;
+    width: 30px;
+}
+
+.buk-multi-choice.open {
+    display: block;
+}
+
+.buk-multi-choice a {
+    display: block;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.buk-multi-choice .x-disable {
+    font-size: 20px;
+    color: #D8D9C1;
+}
+
+.buk-multi-choice .active .badge {
+    border: 2px solid #FFFFFF;
+    background-color: green;
+    padding: 3px 6px;
+}
+
 /* == Multislide x2 == */
 
 .x2 {
@@ -124,8 +182,6 @@ a:active {
 }
 
 /* == Multislide x3 */
-
-/* == Multislide x4 */
 
 
 /* == Sidebar menu == */
@@ -148,12 +204,16 @@ a:active {
     height: auto;
 }
 
+.buk-menu-gate:hover .buk-menu-bar {
+    background: #FFFFFF;
+}
+
 .buk-menu-bar {
     display: block;
     border-radius: 2px;
     height: 5px;
     margin-bottom: 7px;
-    background: #ffffff;
+    background: #D8D9C1;
     -moz-box-shadow:    0 2px 0 rgba(0, 0, 0, 0.08);
     -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
     box-shadow:         0 2px 0 rgba(0, 0, 0, 0.08);
@@ -177,6 +237,10 @@ a:active {
 
 .buk-menu-expanded .buk-menu-gate {
     right: 25px;
+}
+
+.buk-menu-expanded .buk-menu-bar {
+    background: #FFFFFF;
 }
 
 .buk-menu-expanded .buk-menu-bar:nth-child(1) {
