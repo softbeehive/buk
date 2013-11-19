@@ -8,7 +8,9 @@ function switchSlide($target) {
     // Preparations
     var $other = $target.siblings(".active"),
         actid = parseInt($target.attr("id")),
-        current = getCurrent();
+        current = getCurrent(true);
+        // console.log($target);
+        // console.log($other);
     // Detect direction
     if (current > actid) {
         var direction = "right",
@@ -35,25 +37,51 @@ function switchSlide($target) {
     }
     // Syncronizing
     setTimeout(function() {
-        syncNav(actid);
-        syncSidebar();
+        // watchStep(actid);
+        // syncNav(actid);
+        // syncSidebar();
     }, 410);
 }
 
 // Arrow and keyboard switcher
 function switchAlphaOmega(dir) {
-    var getid = getCurrent(),
-        pid = 0;
-    if (dir == "a") pid = getid - 1;
-    else if (dir == "o") pid = getid + 1;
-    $target = $("#" + pid);
-    switchSlide($target);
+    var getid = getCurrent(true),
+        step = getStep(),
+        pid = 0,
+        made = [];
+
+    if (dir == "a") {
+        for (var i = 0; i < getid.length;  i++) {
+            made[i] = Number((getid[i]) - step);
+        }
+    }
+    else if (dir == "o") {
+        for (var i = 0; i < getid.length;  i++) {
+            made[i] = Number((getid[i]) + step);
+        }
+    }
+    
+    $target = $("#" + made.join(", #"));
+    return switchSlide($target);
 }
 
-// Get current slide id
-function getCurrent() {
-    current = parseInt($(".buk-board.active").attr("id"));
-    return current;
+// Get current slides
+function getCurrent(opt) {
+    var current = [];
+    $(".buk-board.active").each(function() {
+        current.push(Number(this.id));
+    });
+    
+    if (!opt) return $current;
+    else return current;
+}
+
+// Get step
+function getStep() {
+    var step = Number(1);
+    if ($(".x2-trigger").hasClass("active")) step = Number(2);
+    else if ($("x3-trigger").hasClass("active")) step = Number(3);
+    return step;
 }
 /* ----------------------------------------------------------- */
 
@@ -82,7 +110,6 @@ function syncNav(actid) {
     var nav = $(".buk-navi-enter").val();
     if (actid !== '' && !isNaN(actid)) {
         $(".buk-navi-enter").val(actid);
-        watchStep(actid);
     }
     else {
         current = getCurrent();
@@ -125,7 +152,9 @@ $(document).ready(function() {
     // Bottom switcher (on enter press)
     $(".buk-navi-enter").keyup(function(e) {
         if (e.keyCode == 13){
-            var $target = $("#" + $(this).val());
+            // var $target = [];
+            // $target[0] = $("#" + $(this).val());
+            // console.log($target);
             switchSlide($target);
         }
     });
@@ -150,6 +179,11 @@ $(document).ready(function() {
         $(".buk-multi-choice").toggleClass("open");
     });
 
+    $(".buk-multi-choice .x").click(function() {
+        $(this).toggleClass("active");
+        $(".buk-board").toggleClass("x2");
+    });
+
     // Initial load
-    syncNav(1);
+    // syncNav(1);
 });

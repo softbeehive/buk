@@ -69,7 +69,7 @@ a:active {
     display: block;
     position: absolute;
     top: 0;
-    width: 100%;
+    /*width: 100%;*/
 }
 
 .buk-board.next {
@@ -108,8 +108,9 @@ a:active {
 
 .buk-multi {
     position: fixed;
-    top: 22px;
-    right: 40px;
+    top: 16px;
+    right: 30px;
+    padding-left: 20px;
     z-index: 5;
 }
 
@@ -121,6 +122,7 @@ a:active {
     display: block;
     color: #D8D9C1;
     font-size: 32px;
+    padding: 7px 10px;
     line-height: 1;
 }
 
@@ -136,8 +138,9 @@ a:active {
 .buk-multi-choice {
     display: none;
     position: absolute;
-    top: 44px;
-    left: 0;
+    top: 50px;
+    left: 50%;
+    margin-left: -15px;
     width: 30px;
 }
 
@@ -152,7 +155,7 @@ a:active {
 }
 
 .buk-multi-choice .x-disable {
-    font-size: 20px;
+    font-size: 18px;
     color: #D8D9C1;
 }
 
@@ -214,9 +217,9 @@ a:active {
     height: 5px;
     margin-bottom: 7px;
     background: #D8D9C1;
-    -moz-box-shadow:    0 2px 0 rgba(0, 0, 0, 0.08);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
-    box-shadow:         0 2px 0 rgba(0, 0, 0, 0.08);
+    -moz-box-shadow:    0 2px 0 rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.16);
+    box-shadow:         0 2px 0 rgba(0, 0, 0, 0.16);
     transition: transform 0.1s ease-in-out 0s, box-shadow 0.1s ease-in-out 0s;
 }
 
@@ -244,9 +247,9 @@ a:active {
 }
 
 .buk-menu-expanded .buk-menu-bar:nth-child(1) {
-    -moz-box-shadow:    -2px 2px 0 rgba(0, 0, 0, 0.08);
-    -webkit-box-shadow: -2px 2px 0 rgba(0, 0, 0, 0.08);
-    box-shadow:         -2px 2px 0 rgba(0, 0, 0, 0.08);
+    -moz-box-shadow:    -2px 2px 0 rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: -2px 2px 0 rgba(0, 0, 0, 0.16);
+    box-shadow:         -2px 2px 0 rgba(0, 0, 0, 0.16);
     -webkit-transform:  translate(4px, 12px) rotate(-45deg);
     -moz-transform:     translate(4px, 12px) rotate(-45deg);
     -ms-transform:      translate(4px, 12px) rotate(-45deg);
@@ -255,9 +258,9 @@ a:active {
 }
 
 .buk-menu-expanded .buk-menu-bar:nth-child(2) {
-    -moz-box-shadow:    2px 2px 0 rgba(0, 0, 0, 0.08);
-    -webkit-box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.08);
-    box-shadow:         2px 2px 0 rgba(0, 0, 0, 0.08);
+    -moz-box-shadow:    2px 2px 0 rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+    box-shadow:         2px 2px 0 rgba(0, 0, 0, 0.16);
     -webkit-transform:  translateX(4px) rotate(45deg);
     -moz-transform:     translateX(4px) rotate(45deg);
     -ms-transform:      translateX(4px) rotate(45deg);
