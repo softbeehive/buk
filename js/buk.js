@@ -33,7 +33,7 @@ function switchSlide($target) {
         setTimeout(function() {
             $target.addClass("active").removeClass(order +" "+ direction);
             $other.removeClass(direction +" active");
-        }, 400);        
+        }, 450);        
     }
     // Syncronizing
     setTimeout(function() {
@@ -63,6 +63,7 @@ function switchAlphaOmega(dir) {
     
     $target = $("#" + made.join(", #"));
     return switchSlide($target);
+    console.log(made);
 }
 
 // Get current slides
@@ -80,7 +81,7 @@ function getCurrent(opt) {
 function getStep() {
     var step = Number(1);
     if ($(".x2-trigger").hasClass("active")) step = Number(2);
-    else if ($("x3-trigger").hasClass("active")) step = Number(3);
+    else if ($(".x3-trigger").hasClass("active")) step = Number(3);
     return step;
 }
 /* ----------------------------------------------------------- */
@@ -170,8 +171,11 @@ $(document).ready(function() {
 
     // Keyboard switcher
     $(document).keyup(function(ee) {
-        if (ee.keyCode == 37 || ee.keyCode == 40) switchAlphaOmega("a");
-        else if (ee.keyCode == 39 || ee.keyCode == 38) switchAlphaOmega("o");
+        if (ee.keyCode == 37 || ee.keyCode == 40) {
+            switchAlphaOmega("a");
+        }
+        else if (ee.keyCode == 39 || ee.keyCode == 38) {switchAlphaOmega("o");
+        }
     });
 
     // Multi slide
@@ -179,7 +183,12 @@ $(document).ready(function() {
         $(".buk-multi-choice").toggleClass("open");
     });
 
-    $(".buk-multi-choice .x").click(function() {
+    $(".buk-multi-choice .x3-trigger").click(function() {
+        $(this).toggleClass("active");
+        $(".buk-board").toggleClass("x3");
+    });
+
+    $(".buk-multi-choice .x2-trigger").click(function() {
         $(this).toggleClass("active");
         $(".buk-board").toggleClass("x2");
     });
