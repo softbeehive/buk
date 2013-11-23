@@ -32,9 +32,12 @@ function switchSlide($target, candarr) {
             $other.removeClass(direction +" active");
         }, 450);        
     }
+
     // Syncronizing
     setTimeout(function() {
-        syncMod();
+        watchStep();
+        syncNav();
+        // syncSidebar();
     }, 460);
 }
 
@@ -111,13 +114,6 @@ function closeSidebar() {
 }
 /* ----------------------------------------------------------- */
 
-function syncMod() {
-    // watchStep();
-    // syncNav();
-    // syncSidebar();
-    console.log("Syncronized!");
-}
-
 // Syncronize sidebar
 function syncSidebar() {
     var canhref = "#" + getCurrent(),
@@ -128,30 +124,34 @@ function syncSidebar() {
 }
 
 // Syncronize bottom navigation
-function syncNav(actid) {
-    var nav = $(".buk-navi-enter").val();
-    if (actid !== '' && !isNaN(actid)) {
-        $(".buk-navi-enter").val(actid);
+function syncNav(current) {
+    var current = getCurrent();
+        first = current[0], 
+        last = current[current.length - 1];
+    if (first != last) {
+        var range = first + "-" + last;
+        $(".buk-navi-enter").val(range).prop("disabled", true);
     }
-    else {
-        current = getCurrent();
-        $(".buk-navi-enter").val(current);
-    }
+    else $(".buk-navi-enter").val(current).removeProp("disabled");
 }
 
 // Watch step
-function watchStep(actid) {
-    var last = parseInt($(".buk-board").last().attr("id")),
-        first = parseInt($(".buk-board").first().attr("id"));
-    if (actid == first) {
-        $(".alpha").addClass("invisible");
-        $(".omega").removeClass("invisible");
+function watchStep() {
+    var current = getCurrent(),
+        last = Number($(".buk-board").last().attr("id")),
+        first = Number($(".buk-board").first().attr("id"));
+    if (first != last) {
+        if (current[0] == first) {
+            $(".alpha").addClass("invisible");
+            $(".omega").removeClass("invisible");
+        }
+        else if (current[current.length - 1] == last) {
+            $(".omega").addClass("invisible");
+            $(".alpha").removeClass("invisible");
+        }
+        else $(".alpha, .omega").removeClass("invisible");
     }
-    else if (actid == last) {
-        $(".omega").addClass("invisible");
-        $(".alpha").removeClass("invisible");
-    }
-    else $(".alpha, .omega").removeClass("invisible");
+    else $(".alpha, .omega").addClass("invisible");
 }
 /* ----------------------------------------------------------- */
 
@@ -173,11 +173,10 @@ $(document).ready(function() {
 
     // Bottom switcher (on enter press)
     $(".buk-navi-enter").keyup(function(e) {
-        if (e.keyCode == 13){
-            // var $target = [];
-            // $target[0] = $("#" + $(this).val());
-            // console.log($target);
-            // switchSlide($target);
+        if (e.keyCode == 13) {
+            var target = [];
+            target[0] = "#" + Number($(this).val());
+            switchSlide($(target[0]), target[0]);
         }
     });
 
@@ -192,11 +191,8 @@ $(document).ready(function() {
 
     // Keyboard switcher
     $(document).keyup(function(ee) {
-        if (ee.keyCode == 37 || ee.keyCode == 40) {
-            switchAlphaOmega("a");
-        }
-        else if (ee.keyCode == 39 || ee.keyCode == 38) {switchAlphaOmega("o");
-        }
+        if (ee.keyCode == 37 || ee.keyCode == 40) switchAlphaOmega("a");
+        else if (ee.keyCode == 39 || ee.keyCode == 38) switchAlphaOmega("o");
     });
 
     // Multi slide
@@ -227,8 +223,10 @@ $(document).ready(function() {
             $siblings.removeClass("active");
         }
         $(this).toggleClass("active");
+        syncNav();
     });
 
     // Initial load
-    // syncNav(1);
+    syncNav();
+    watchStep();
 });

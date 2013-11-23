@@ -528,11 +528,16 @@ a:active {
     width: 44px;
     height: 32px;
     padding: 2px;
+    font-size: 13px;
     line-height: 18px;
     text-align: center;
     border: none;
     background: transparent;
     z-index: 4;
+}
+
+.buk-navi-enter:disabled {
+    color: #000000;
 }
 
 .buk-navi-enter:focus {
