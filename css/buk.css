@@ -168,8 +168,50 @@ a:active {
     width: 33.3%;
 }
 
-.x3.active > .buk-board-article {
+.x3.active > .buk-board-article,
+.x3.next.left > .buk-board-article,
+.x3.prev.right > .buk-board-article {
     margin-right: 10px;
+}
+
+.x3.next.left:nth-child(3n+2),
+.x3.prev.right:nth-child(3n+2) {
+    left: 33.33%;
+    -webkit-transition: left 0.26s linear 0.13s;
+    -moz-transition: left 0.26s linear 0.13s;
+    -o-transition: left 0.26s linear 0.13s;
+    transition: left 0.26s linear 0.13s;
+}
+
+.x3.next.left:nth-child(3n+3){
+    left: 66.66%;
+    -webkit-transition: left 0.13s linear 0.26s;
+    -moz-transition: left 0.13s linear 0.26s;
+    -o-transition: left 0.13s linear 0.26s;
+    transition: left 0.13s linear 0.26s;
+}
+
+.x3.prev.right:nth-child(3n+3) {
+    left: 66.66%;
+    -webkit-transition: left 0.4s linear 0s;
+    -moz-transition: left 0.4s linear 0s;
+    -o-transition: left 0.4s linear 0s;
+    transition: left 0.4s linear 0s;
+}
+
+.x3.active {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+.x3.active.left,
+.x3.active.right {
+    -webkit-transition: left 0.4s linear 0s;
+    -moz-transition: left 0.4s linear 0s;
+    -o-transition: left 0.4s linear 0s;
+    transition: left 0.4s linear 0s;
 }
 
 /* == Multislide == */
@@ -201,12 +243,6 @@ a:active {
     color: #FFFFFF;
 }
 
-.buk-multi-choice .x-disable:hover,
-.buk-multi-choice .x-disable:focus,
-.buk-multi-choice .x-disable:active {
-    color: #FF0000;
-}
-
 .buk-multi-choice {
     display: none;
     position: absolute;
@@ -224,11 +260,6 @@ a:active {
     display: block;
     margin-bottom: 2px;
     text-align: center;
-}
-
-.buk-multi-choice .x-disable {
-    font-size: 18px;
-    color: #D8D9C1;
 }
 
 .buk-multi-choice .active .badge {

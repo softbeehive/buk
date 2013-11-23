@@ -35,7 +35,7 @@ function switchSlide($target, candarr) {
     // Syncronizing
     setTimeout(function() {
         syncMod();
-    }, 410);
+    }, 460);
 }
 
 // Arrow and keyboard switcher
