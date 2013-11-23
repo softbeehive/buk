@@ -4,17 +4,14 @@
 */
 
 // General slide switcher
-function switchSlide($target) {
+function switchSlide($target, candarr) {
     // Preparations
     var $other = $target.siblings(".active"),
-        actid = parseInt($target.attr("id")),
         current = getCurrent(true);
-        // console.log($target);
-        // console.log($other);
     // Detect direction
-    if (current > actid) {
-        var direction = "right",
-            order = "prev";
+    if (current[0] > candarr[0]) {
+        var direction = "right", 
+        order = "prev";
     } 
     else {
         var direction = "left",
@@ -37,19 +34,19 @@ function switchSlide($target) {
     }
     // Syncronizing
     setTimeout(function() {
-        // watchStep(actid);
-        // syncNav(actid);
-        // syncSidebar();
+        syncMod();
     }, 410);
 }
 
 // Arrow and keyboard switcher
 function switchAlphaOmega(dir) {
-    var getid = getCurrent(true),
+    var getid = getCurrent(),
         step = getStep(),
         pid = 0,
         made = [];
-
+    if (getid.length != step) {
+        getid = prepareLayout(getid, step);
+    }
     if (dir == "a") {
         for (var i = 0; i < getid.length;  i++) {
             made[i] = Number((getid[i]) - step);
@@ -60,30 +57,47 @@ function switchAlphaOmega(dir) {
             made[i] = Number((getid[i]) + step);
         }
     }
-    
     $target = $("#" + made.join(", #"));
-    return switchSlide($target);
-    console.log(made);
+    return switchSlide($target, made);
 }
 
 // Get current slides
-function getCurrent(opt) {
+function getCurrent() {
     var current = [];
     $(".buk-board.active").each(function() {
         current.push(Number(this.id));
     });
-    
-    if (!opt) return $current;
-    else return current;
+    return current;
 }
 
 // Get step
 function getStep() {
     var step = Number(1);
-    if ($(".x2-trigger").hasClass("active")) step = Number(2);
-    else if ($(".x3-trigger").hasClass("active")) step = Number(3);
+    if ($(".x").hasClass("active")) step = Number($(".x.active").attr("data"));
     return step;
 }
+
+// Prepare layout
+function prepareLayout(getid, step) {
+    var len = getid.length;
+    if (len > step) {
+        for (var i = len; i > step; i--) {
+            getid.pop();
+        }
+        if (len > 1) $(".buk-board.active").not("#" + getid.join(", #")).removeClass("active");
+        else $(".buk-board.active").not("#" + getid).removeClass("active");
+    }
+    else if (step > len){
+        for (var i = step; i > len; i--) {
+            g1 =  (getid[getid.length - 1]) + 1;
+            getid.push(g1);
+        }
+        if (len > 1) $("#" + getid.join(", #")).addClass("active");
+        else $("#" + getid).addClass("active");
+    }
+    return getid;
+}
+
 /* ----------------------------------------------------------- */
 
 // Show sidebar
@@ -96,6 +110,13 @@ function closeSidebar() {
     $(".buk-menu").removeClass("buk-menu-expanded");
 }
 /* ----------------------------------------------------------- */
+
+function syncMod() {
+    // watchStep();
+    // syncNav();
+    // syncSidebar();
+    console.log("Syncronized!");
+}
 
 // Syncronize sidebar
 function syncSidebar() {
@@ -146,7 +167,7 @@ $(document).ready(function() {
     $(".buk-menu-index a").click(function(e) {
         e.preventDefault();
         var $target = $($(this).attr("href"));
-        switchSlide($target);
+        // switchSlide($target);
         closeSidebar();
     });
 
@@ -156,7 +177,7 @@ $(document).ready(function() {
             // var $target = [];
             // $target[0] = $("#" + $(this).val());
             // console.log($target);
-            switchSlide($target);
+            // switchSlide($target);
         }
     });
 
@@ -183,14 +204,29 @@ $(document).ready(function() {
         $(".buk-multi-choice").toggleClass("open");
     });
 
-    $(".buk-multi-choice .x3-trigger").click(function() {
+    $(".buk-multi-choice .x").click(function() {
+        // Process dimension
+        var dim = $(this).attr("data"),
+            current = getCurrent(),
+            $siblings = $(this).siblings(".active");
+        if ($(this).hasClass("active")) {
+            $(".buk-board").removeClass("x" + dim);
+            prepareLayout(current, 1);
+        }
+        else {
+            $(".buk-board").addClass("x" + dim);
+            tp = prepareLayout(current, dim);
+            $show = $("#" + tp.join(", #"));
+            $show.addClass("active");
+        }
+        // Clean other dimensions
+        if ($siblings.hasClass("active")) {
+            $siblings.each(function(index, self) {
+                $(".buk-board").removeClass("x" + $(self).attr("data"));
+            });
+            $siblings.removeClass("active");
+        }
         $(this).toggleClass("active");
-        $(".buk-board").toggleClass("x3");
-    });
-
-    $(".buk-multi-choice .x2-trigger").click(function() {
-        $(this).toggleClass("active");
-        $(".buk-board").toggleClass("x2");
     });
 
     // Initial load
