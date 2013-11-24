@@ -37,7 +37,7 @@ function switchSlide($target, candarr) {
     setTimeout(function() {
         watchStep();
         syncNav();
-        // syncSidebar();
+        syncSidebar();
     }, 460);
 }
 
@@ -116,11 +116,11 @@ function closeSidebar() {
 
 // Syncronize sidebar
 function syncSidebar() {
-    var canhref = "#" + getCurrent(),
-        $candidate = $(".buk-menu-index a[href="+ canhref +"]"),
-        $past = $(".buk-menu-index a.active").not($candidate);
-    $candidate.addClass("active");
-    $past.removeClass("active");
+    $(".buk-menu-index a").removeClass("active");
+    var current = getCurrent();
+    for (var i = 0; i < current.length; i++) {
+        $(".buk-menu-index a[href="+ "#" + current[i] +"]").addClass("active");
+    }
 }
 
 // Syncronize bottom navigation
@@ -166,9 +166,15 @@ $(document).ready(function() {
     // Index menu switcher
     $(".buk-menu-index a").click(function(e) {
         e.preventDefault();
-        var $target = $($(this).attr("href"));
-        // switchSlide($target);
-        closeSidebar();
+        var canhref = $(this).attr("href"),
+            step = getStep(),
+            made = [Number($(canhref).attr("id"))];
+        for (var i = 0; i < step - 1; i++) {
+            made[i+1] = Number(made[i] + 1);
+        }
+        $target = $("#" + made.join(", #"));
+        switchSlide($target, made);
+        // closeSidebar();
     });
 
     // Bottom switcher (on enter press)
@@ -224,6 +230,7 @@ $(document).ready(function() {
         }
         $(this).toggleClass("active");
         syncNav();
+        syncSidebar();
     });
 
     // Initial load
