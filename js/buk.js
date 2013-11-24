@@ -174,7 +174,7 @@ $(document).ready(function() {
         }
         $target = $("#" + made.join(", #"));
         switchSlide($target, made);
-        // closeSidebar();
+        closeSidebar();
     });
 
     // Bottom switcher (on enter press)
