@@ -1,5 +1,5 @@
-# Buk
-Buk is a classic presentation tool, designed under influence of well known educational attribute. 
+# [Buk](http://yakviter.com.ua/buk/)
+Buk is a classic multidimensional presentation tool with flexible navigation designed under influence of well known educational attribute.
 
 ## Idea
 
