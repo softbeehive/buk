@@ -14,7 +14,7 @@ It perfectly combines idea and materia, its educational nature and representatio
 
 ## Quickstart
 Recently buk is structure oriented tool.
-All you need to start is following base structure:
+All you need to start is following base structure or just use index.html as a template.
 
 ```html
 
@@ -49,7 +49,9 @@ All you need to start is following base structure:
     <!-- Dimension switcher -->
     <div class="buk-multi">
         <div class="buk-multi-inner">
-            <a class="buk-multi-gate" href="javascript:void(0)"><i class="glyphicon glyphicon-th"></i></a>
+            <a class="buk-multi-gate" href="javascript:void(0)">
+                <i class="glyphicon glyphicon-th"></i>
+            </a>
             <div class="buk-multi-choice">
                 <a class="x" href="javascript:void(0)" data="2">
                     <span class="badge">x2</span></a>
@@ -62,8 +64,12 @@ All you need to start is following base structure:
 
     <!-- Arrow controls -->
     <div class="buk-ao">
-        <a class="buk-to alpha invisible" href="javascript:void(0)"><i class="glyphicon glyphicon-chevron-left"></i></a>
-        <a class="buk-to omega" href="javascript:void(0)"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        <a class="buk-to alpha invisible" href="javascript:void(0)">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+        </a>
+        <a class="buk-to omega" href="javascript:void(0)">
+            <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
     </div>
 
     <!-- Navigation, page number indication -->
@@ -81,11 +87,10 @@ All you need to start is following base structure:
 
 </div>
 ```
-
+I know it should be simplified and it will be.
 ## Documentation
 
 ## Planned improvements
 
 
 ## Bugs
-Currently
