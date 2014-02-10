@@ -14,7 +14,7 @@ It perfectly combines idea and materia, its educational nature and representatio
 
 ## Quickstart
 Recently buk is structure oriented tool.
-All you need to start is following base structure or just use index.html as a template.
+All you need to start is following base structure or just use [index.html](https://github.com/softbeehive/buk/blob/master/index.html) as a template.
 
 ```html
 
