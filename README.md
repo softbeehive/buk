@@ -19,13 +19,15 @@ All you need to start is following base structure:
 ```html
 # Main container
 <div class="buk-atmosphere">
-    # Content container
+
+    <!-- Content container -->
     <div class="buk-lithosphere">
         <div id="1" class="buk-board active">
             <article class="buk-board-article">Content goes here</article>
         </div>
     </div>
-    # Index menu
+
+    <!-- Index menu -->
     <div class="buk-menu">
         <div class="buk-menu-hwrap">
             <a class="buk-menu-gate" href="javascript:void(0)">
@@ -43,7 +45,8 @@ All you need to start is following base structure:
             </ol>
         </div>
     </div>
-    # Dimension switcher
+
+    <!-- Dimension switcher -->
     <div class="buk-multi">
         <div class="buk-multi-inner">
             <a class="buk-multi-gate" href="javascript:void(0)"><i class="glyphicon glyphicon-th"></i></a>
@@ -56,22 +59,26 @@ All you need to start is following base structure:
             </div>
         </div>
     </div>
-    # Arrow controls
+
+    <!-- Arrow controls -->
     <div class="buk-ao">
         <a class="buk-to alpha invisible" href="javascript:void(0)"><i class="glyphicon glyphicon-chevron-left"></i></a>
         <a class="buk-to omega" href="javascript:void(0)"><i class="glyphicon glyphicon-chevron-right"></i></a>
     </div>
-    # Navigation, page number indication
+
+    <!-- Navigation, page number indication -->
     <div class="buk-navi">
         <div class="buk-navi-inner">
             <input class="buk-navi-enter" type="text" name="go-to-slide" value="1">
         </div>
     </div>
-    # Wooden frame
+
+    <!-- Wooden frame -->
     <div class="buk-frame buk-frame-t"></div>
     <div class="buk-frame buk-frame-r"></div>
     <div class="buk-frame buk-frame-b"></div>
     <div class="buk-frame buk-frame-l"></div>
+    
 </div>
 ```
 
