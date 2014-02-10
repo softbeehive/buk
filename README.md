@@ -1,5 +1,5 @@
 # [Buk](http://yakviter.com.ua/buk/)
-Buk is a multidimensional presentation tool with flexible navigation designed under influence of board, well known educational attribute.
+Buk is a mobile-ready, multidimensional presentation tool with flexible navigation and controls designed under influence of board, well known educational attribute.
 
 Demo: [http://yakviter.com.ua/buk/](http://yakviter.com.ua/buk/)
 ## Name and idea
@@ -13,6 +13,10 @@ It may seem wierd but I spent a day iterating through possible variants searchin
 It perfectly combines idea and materia, its educational nature and representation.
 
 ## Quickstart
+Recently buk is structure oriented tool.
+All you need to start is following base structure:
+
+
 
 ## Documentation
 
