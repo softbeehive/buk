@@ -17,7 +17,7 @@ Recently buk is structure oriented tool.
 All you need to start is following base structure:
 
 ```html
-# Main container
+
 <div class="buk-atmosphere">
 
     <!-- Content container -->
@@ -78,7 +78,7 @@ All you need to start is following base structure:
     <div class="buk-frame buk-frame-r"></div>
     <div class="buk-frame buk-frame-b"></div>
     <div class="buk-frame buk-frame-l"></div>
-    
+
 </div>
 ```
 
