@@ -97,6 +97,11 @@ Navigating through the slides is quite flexible and easy. There are several ways
 - slide number input + enter
 
 ## Planned improvements
-
+I believe buk will be socially useful, planting a seed I'm pretty sure we can grow a great tree. Main priorities:
+- dynamic content structure
+- visual flexibility, adding multiple theme support
+- better mobile readiness
+- perfomance optimization
+- error handling
 
 ## Bugs
