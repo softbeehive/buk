@@ -90,8 +90,8 @@ All you need to start is following base structure or just use [index.html](https
 I know it should be simplified and it will be.
 ## Control
 
-Slides can be switched using:
-- arrows keys (left - right, up - down)
+Navigating through the slides is quite flexible and easy. There are several ways available:
+- arrow keys (left - right, up - down)
 - visual arrow icons (left - right)
 - context menu
 - slide number input + enter
