@@ -46,7 +46,7 @@ a:active {
 
 .buk-lithosphere {
     padding: 0px;
-    margin: 0px 70px 40px 70px;
+    margin: 40px 80px;
     position: relative;
     overflow: hidden;
 }
@@ -55,7 +55,7 @@ a:active {
     display: none;
     position: relative;
     color: #FFFFFF;
-    padding: 24px 0 0;
+    padding: 0;
     -webkit-transition: left 0.4s linear 0s;
     -moz-transition: left 0.4s linear 0s;
     -o-transition: left 0.4s linear 0s;
@@ -281,8 +281,8 @@ a:active {
 
 .buk-menu-gate {
     position: absolute;
-    top: 28px;
-    right: 10px;
+    top: 44px;
+    right: 0;
     display: block;
     width: 36px;
     height: auto;
@@ -325,6 +325,10 @@ a:active {
 
 .buk-menu-expanded .buk-menu-bar {
     background: #FFFFFF;
+}
+
+.buk-menu-expanded h3 {
+    margin-top: 30px;
 }
 
 .buk-menu-expanded .buk-menu-bar:nth-child(1) {
@@ -424,7 +428,7 @@ a:active {
 .buk-to {
     display: block;
     position: fixed;
-    width: 55px;
+    width: 65px;
     height: 100%;
     bottom: 0;
     color: #D8D9C1;
@@ -442,17 +446,17 @@ a:active {
 }
 
 .buk-to i {
-    font-size: 24px;
+    font-size: 30px;
     top: 50%;
-    margin-top: -12px;
+    margin-top: -15px;
 }
 
 .alpha {
-    left: 16px;
+    left: 26px;
 }
 
 .omega {
-    right: 36px;
+    right: 26px;
     text-align: right;
 }
 
@@ -630,6 +634,10 @@ a:active {
 
 .buk-image.pull-left {
     margin: 0 20px 20px 0;
+}
+
+.buk-image.pull-right {
+    margin: 0 0 20px 20px;
 }
 
 /* == Adaptive design == */
