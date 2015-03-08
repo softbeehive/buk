@@ -12,9 +12,12 @@ It may seem wierd but I spent a day iterating through possible variants searchin
 
 It perfectly combines idea and materia, its educational nature and representation.
 
-## Quickstart
-Recently buk is structure oriented tool.
-All you need to start is following base structure or just use [index.html](https://github.com/softbeehive/buk/blob/master/index.html) as a template.
+## Quickstart & Requirements
+Buk depends on jQuery 1.8+, theme is based on Twitter Bootstrap 3.
+
+Recently buk is structure oriented tool. It is provided as boilerplate, which is easy to modify. Basically you need 4 items to start include jQuery, buk.js (presentation tool core), bootstrap.css (basic styles) and buk.css (theme).
+
+Follow initial structure or just use [index.html](https://github.com/softbeehive/buk/blob/master/index.html) as a start template.
 
 ```html
 
@@ -87,8 +90,8 @@ All you need to start is following base structure or just use [index.html](https
 
 </div>
 ```
-I know it should be simplified and it will be.
-## Control
+
+## Controls
 
 Navigating through the slides is quite flexible and easy. There are several ways available:
 - arrow keys (left - right, up - down)
@@ -103,5 +106,3 @@ I believe buk will be socially useful, planting a seed I'm pretty sure we can gr
 - better mobile readiness
 - perfomance optimization
 - error handling
-
-## Bugs
