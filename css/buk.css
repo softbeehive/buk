@@ -56,10 +56,10 @@ a:active {
     position: relative;
     color: #FFFFFF;
     padding: 0;
-    -webkit-transition: left 0.4s linear 0s;
-    -moz-transition: left 0.4s linear 0s;
-    -o-transition: left 0.4s linear 0s;
-    transition: left 0.4s linear 0s;
+    -webkit-transition: left 0.3s linear 0s;
+    -moz-transition: left 0.3s linear 0s;
+    -o-transition: left 0.3s linear 0s;
+    transition: left 0.3s linear 0s;
 }
 
 .buk-board.active {
@@ -218,8 +218,8 @@ a:active {
 
 .buk-multi {
     position: fixed;
-    top: 16px;
-    right: 30px;
+    top: 40px;
+    right: 40px;
     padding-left: 20px;
     min-height: 100px;
     z-index: 5;
@@ -233,7 +233,6 @@ a:active {
     display: block;
     color: #D8D9C1;
     font-size: 32px;
-    padding: 7px 10px;
     line-height: 1;
 }
 
