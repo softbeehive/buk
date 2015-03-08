@@ -26,7 +26,10 @@ Follow initial structure or just use [index.html](https://github.com/softbeehive
     <!-- Content container -->
     <div class="buk-lithosphere">
         <div id="1" class="buk-board active">
-            <article class="buk-board-article">Content goes here</article>
+            <article class="buk-board-article">Slide #1 content</article>
+        </div>
+        <div id="2" class="buk-board">
+            <article class="buk-board-article">Slide #2 content</article>
         </div>
     </div>
 
