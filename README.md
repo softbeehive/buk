@@ -1,7 +1,7 @@
-# [Buk](http://yakviter.com.ua/buk/)
+# [Buk](https://yakviter.com.ua/buk/)
 Buk is mobile-ready, multidimensional presentation tool with flexible navigation and controls designed under influence of board, well known educational attribute.
 
-Demo: [http://yakviter.com.ua/buk/](http://yakviter.com.ua/buk/)
+Demo: [https://yakviter.com.ua/buk/](https://yakviter.com.ua/buk/)
 ## Name and idea
 It may seem wierd but I spent a day iterating through possible variants searching for a great name. Final result I came with was even better then expected. Because of its symbolism.
 

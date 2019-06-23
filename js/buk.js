@@ -119,7 +119,8 @@ function syncSidebar() {
     $(".buk-menu-index a").removeClass("active");
     var current = getCurrent();
     for (var i = 0; i < current.length; i++) {
-        $(".buk-menu-index a[href="+ "#" + current[i] +"]").addClass("active");
+        var selector = '.buk-menu-index a[href="#' + current[i] + '"]'
+        $(selector).addClass("active");
     }
 }
 
