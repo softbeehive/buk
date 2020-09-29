@@ -1,0 +1,652 @@
+/* 
+   Buk: board-like presentation tool
+   Oleksandr Bystrikov, 2013
+*/
+
+/* == Normalization == */
+
+html {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    height: 100%;
+    min-height: 100%;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a,
+a:focus,
+a:active {
+    outline: 0 none !important;
+}
+
+/* == Clearfix == */
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+/* == Biosphere == */
+
+.buk-atmosphere {
+    background: #025f4e;
+    height: 100%;
+    min-height: 100%;
+    margin: 0 16px;
+    overflow: auto;
+}
+
+.buk-lithosphere {
+    padding: 0px;
+    margin: 40px 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.buk-board {
+    display: none;
+    position: relative;
+    color: #FFFFFF;
+    padding: 0;
+    -webkit-transition: left 0.3s linear 0s;
+    -moz-transition: left 0.3s linear 0s;
+    -o-transition: left 0.3s linear 0s;
+    transition: left 0.3s linear 0s;
+}
+
+.buk-board.active {
+    display: block;
+    left: 0;
+}
+
+.buk-board.next,
+.buk-board.prev {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.buk-board.next.x2,
+.buk-board.prev.x2 {
+    width: 50%;
+}
+
+.buk-board.next.x3,
+.buk-board.prev.x3 {
+    width: 33.3%;
+}
+
+.buk-board.next {
+    left: 100%;
+}
+
+.buk-board.prev {
+    left: -100%;
+}
+
+.buk-board.active.left {
+    left: -100%;
+}
+
+.buk-board.active.right {
+    left: 100%;
+}
+
+.buk-board.next.left,
+.buk-board.prev.right {
+    left: 0;
+}
+
+.buk-board-title {
+   margin-top: 0;
+   padding: 0;
+}
+
+.buk-board-extra {
+    padding: 10px 0 0 0;
+    border-top: 1px solid #F2F1EB;
+    font-size: 12px;
+}
+
+/* == Multislide x2 == */
+
+.x2 {
+    float: left;
+    width: 50%;
+}
+
+.x2.active > .buk-board-article,
+.x2.next.left > .buk-board-article,
+.x2.prev.right > .buk-board-article {
+    margin: 0 20px 0 0;
+}
+
+.x2.next.left:nth-child(2n){
+    left: 50%;
+    -webkit-transition: left 0.2s linear 0.2s;
+    -moz-transition: left 0.2s linear 0.2s;
+    -o-transition: left 0.2s linear 0.2s;
+    transition: left 0.2s linear 0.2s;
+}
+
+.x2.prev.right:nth-child(2n) {
+    left: 50%;
+    -webkit-transition: left 0.4s linear 0s;
+    -moz-transition: left 0.4s linear 0s;
+    -o-transition: left 0.4s linear 0s;
+    transition: left 0.4s linear 0s;
+}
+
+.x2.active {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+.x2.active.left,
+.x2.active.right {
+    -webkit-transition: left 0.4s linear 0s;
+    -moz-transition: left 0.4s linear 0s;
+    -o-transition: left 0.4s linear 0s;
+    transition: left 0.4s linear 0s;
+}
+
+/* == Multislide x3 */
+
+.x3 {
+    float: left;
+    width: 33.3%;
+}
+
+.x3.active > .buk-board-article,
+.x3.next.left > .buk-board-article,
+.x3.prev.right > .buk-board-article {
+    margin-right: 10px;
+}
+
+.x3.next.left:nth-child(3n+2),
+.x3.prev.right:nth-child(3n+2) {
+    left: 33.33%;
+    -webkit-transition: left 0.26s linear 0.13s;
+    -moz-transition: left 0.26s linear 0.13s;
+    -o-transition: left 0.26s linear 0.13s;
+    transition: left 0.26s linear 0.13s;
+}
+
+.x3.next.left:nth-child(3n+3){
+    left: 66.66%;
+    -webkit-transition: left 0.13s linear 0.26s;
+    -moz-transition: left 0.13s linear 0.26s;
+    -o-transition: left 0.13s linear 0.26s;
+    transition: left 0.13s linear 0.26s;
+}
+
+.x3.prev.right:nth-child(3n+3) {
+    left: 66.66%;
+    -webkit-transition: left 0.4s linear 0s;
+    -moz-transition: left 0.4s linear 0s;
+    -o-transition: left 0.4s linear 0s;
+    transition: left 0.4s linear 0s;
+}
+
+.x3.active {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+.x3.active.left,
+.x3.active.right {
+    -webkit-transition: left 0.4s linear 0s;
+    -moz-transition: left 0.4s linear 0s;
+    -o-transition: left 0.4s linear 0s;
+    transition: left 0.4s linear 0s;
+}
+
+/* == Multislide == */
+
+.buk-multi {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    padding-left: 20px;
+    min-height: 100px;
+    z-index: 5;
+}
+
+.buk-multi-inner {
+    position: relative;
+}
+
+.buk-multi-gate {
+    display: block;
+    color: #D8D9C1;
+    font-size: 32px;
+    line-height: 1;
+}
+
+.buk-multi-gate:hover,
+.buk-multi-gate:focus,
+.buk-multi-gate:active {
+    color: #FFFFFF;
+}
+
+.buk-multi-choice {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: -15px;
+    width: 30px;
+}
+
+.buk-multi-choice.open {
+    display: block;
+}
+
+.buk-multi-choice a {
+    display: block;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.buk-multi-choice .active .badge {
+    border: 2px solid #FFFFFF;
+    background-color: green;
+    padding: 3px 6px;
+}
+
+/* == Sidebar menu == */
+
+.buk-menu {
+    position: fixed;
+    left: -230px;
+    top: 0;
+    width: 305px;
+    padding: 12px 0 0;
+    z-index: 5;
+}
+
+.buk-menu-gate {
+    position: absolute;
+    top: 44px;
+    right: 0;
+    display: block;
+    width: 36px;
+    height: auto;
+}
+
+.buk-menu-gate:hover .buk-menu-bar {
+    background: #FFFFFF;
+}
+
+.buk-menu-bar {
+    display: block;
+    border-radius: 2px;
+    height: 5px;
+    margin-bottom: 7px;
+    background: #D8D9C1;
+    -moz-box-shadow:    0 2px 0 rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.16);
+    box-shadow:         0 2px 0 rgba(0, 0, 0, 0.16);
+    transition: transform 0.1s ease-in-out 0s, box-shadow 0.1s ease-in-out 0s;
+}
+
+.buk-menu-expanded {
+    background: #D8D9C1;
+    left: 0;
+    bottom: 0;
+    color: #038C73;
+    -moz-box-shadow:    2px 2px 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow:         2px 2px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.buk-menu-expanded .buk-menu-hwrap,
+.buk-menu-expanded .buk-menu-iwrap {
+    padding: 0 15px 0 20px;
+}
+
+.buk-menu-expanded .buk-menu-gate {
+    right: 25px;
+}
+
+.buk-menu-expanded .buk-menu-bar {
+    background: #FFFFFF;
+}
+
+.buk-menu-expanded h3 {
+    margin-top: 30px;
+}
+
+.buk-menu-expanded .buk-menu-bar:nth-child(1) {
+    -moz-box-shadow:    -2px 2px 0 rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: -2px 2px 0 rgba(0, 0, 0, 0.16);
+    box-shadow:         -2px 2px 0 rgba(0, 0, 0, 0.16);
+    -webkit-transform:  translate(4px, 12px) rotate(-45deg);
+    -moz-transform:     translate(4px, 12px) rotate(-45deg);
+    -ms-transform:      translate(4px, 12px) rotate(-45deg);
+    -o-transform:       translate(4px, 12px) rotate(-45deg);
+    transform:          translate(4px, 12px) rotate(-45deg);
+}
+
+.buk-menu-expanded .buk-menu-bar:nth-child(2) {
+    -moz-box-shadow:    2px 2px 0 rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+    box-shadow:         2px 2px 0 rgba(0, 0, 0, 0.16);
+    -webkit-transform:  translateX(4px) rotate(45deg);
+    -moz-transform:     translateX(4px) rotate(45deg);
+    -ms-transform:      translateX(4px) rotate(45deg);
+    -o-transform:       translateX(4px) rotate(45deg);
+    transform:          translateX(4px) rotate(45deg);
+}
+
+.buk-menu-expanded .buk-menu-bar:nth-child(3) {
+    -moz-box-shadow:    none;
+    -webkit-box-shadow: none;
+    box-shadow:         none;
+    -webkit-transform:  translate(4px, -12px) rotate(-45deg);
+    -moz-transform:     translate(4px, -12px) rotate(-45deg);
+    -ms-transform:      translate(4px, -12px) rotate(-45deg);
+    -o-transform:       translate(4px, -12px) rotate(-45deg);
+    transform:          translate(4px, -12px) rotate(-45deg);
+}
+
+.buk-menu-iwrap {
+    height: 88%;
+    max-height: 88%;
+    overflow-y: auto;
+}
+
+.buk-menu-index {
+    display: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: li;
+    list-style: none;
+    *list-style: decimal;
+}
+
+.buk-menu-expanded .buk-menu-index {
+    display: block;
+}
+
+.buk-menu-index a {
+    position: relative;
+    display: block;
+    padding: 4px 4px 4px 28px;
+    *padding: 4px;
+    margin: 7px 0;
+    background: #FFFFFF;
+    color: #038C73;
+    text-decoration: none;
+    border-radius: 2px; 
+}
+
+.buk-menu-index a:hover,
+.buk-menu-index a.active {
+    color: #025950;
+}
+
+.buk-menu-index a:before {
+    content: counter(li);
+    counter-increment: li;
+    position: absolute; 
+    left: -12px;
+    top: 50%;
+    margin-top: -14px;
+    background: #FFFFFF;
+    height: 28px;
+    width: 28px;
+    font-size: 13px;
+    line-height: 24px;
+    border: 2px solid #038C73;
+    text-align: center;
+    border-radius: 28px;
+}
+
+.buk-menu-index a.active:before,
+.buk-menu-index a:hover:before {
+    background: #038C73;
+    color: #FFFFFF;
+}
+
+/* == L-R navigation == */
+
+.buk-to {
+    display: block;
+    position: fixed;
+    width: 65px;
+    height: 100%;
+    bottom: 0;
+    color: #D8D9C1;
+    z-index: 4;
+}
+
+.buk-to.invisible {
+    display: none;
+}
+
+.buk-to:hover,
+.buk-to:active,
+.buk-to:focus {
+    color: #FFFFFF;
+}
+
+.buk-to i {
+    font-size: 30px;
+    top: 50%;
+    margin-top: -15px;
+}
+
+.alpha {
+    left: 26px;
+}
+
+.omega {
+    right: 26px;
+    text-align: right;
+}
+
+.alpha i {
+    left: 16px;
+}
+
+.omega i {
+    right: 16px;
+}
+
+/* == Bottom navigation == */
+
+.buk-navi {
+    position: fixed;
+    bottom: 8px;
+    left: 50%;
+    width: 44px;
+    height: 32px;
+    margin: 0 0 0 -22px;
+    overflow: hidden;
+    z-index: 2;  
+}
+
+.buk-navi:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: -6px;
+    left: 0;
+    width: 44px;
+    height: 44px;
+    -webkit-transform:  rotate(45deg);
+    -moz-transform:     rotate(45deg);
+    -ms-transform:      rotate(45deg);
+    -o-transform:       rotate(45deg);
+    transform:          rotate(45deg);
+    background-color: #FFFFFF;
+    border: 2px solid #025950;
+    z-index: 2;
+}
+
+.buk-navi-inner:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    margin-left: -15px;
+    width: 30px;
+    height: 34px;
+    border-top: 3px solid #025950;
+    border-bottom: 3px solid #025950;
+    z-index: 3;
+}
+
+.buk-navi-inner:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 44px;
+    height: 17px;
+    margin-top: -8px;
+    border-left: 2px solid #025950;
+    border-right: 2px solid #025950;
+    z-index: 3;
+}
+
+.buk-navi-enter {
+    position: absolute;
+    width: 44px;
+    height: 32px;
+    padding: 2px;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    z-index: 4;
+}
+
+.buk-navi-enter:disabled {
+    color: #000000;
+}
+
+.buk-navi-enter:focus {
+    border: none;
+    outline: none;
+}
+
+/* == Frame == */
+
+.buk-frame {
+    position: fixed;
+}
+
+.buk-frame-t,
+.buk-frame-b {
+    width: 100%;
+    height: 16px;
+    background: url("../img/side-tb.jpg") repeat-x;
+    border-top: 1px solid #9C7350;
+    border-bottom: 1px solid #9C7350;
+    z-index: 1;
+}
+
+.buk-frame-t {
+    top: 0px;
+}
+
+.buk-frame-b {
+    bottom: 0px;
+    background-position: 0 100%;
+}
+
+.buk-frame-r,
+.buk-frame-l {
+    width: 16px;
+    height: 100%;
+    top: 0;
+    background: url("../img/side-lr.jpg") repeat-y;
+    border: 1px solid #9C7350;
+    z-index: 2;
+}
+
+.buk-frame-l {
+    left: 0;
+}
+
+.buk-frame-r {
+    right: 0;
+    background-position: 100% 0;
+}
+
+.buk-frame-r:before,
+.buk-frame-r:after,
+.buk-frame-l:before,
+.buk-frame-l:after {
+    content: " ";
+    display: block;
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    background: url("../img/corner.png") no-repeat;
+    z-index: 3;
+}
+
+.buk-frame-r:before {
+    top: 1px;
+    right: 1px;
+    background-position: -14px 0;
+}
+
+.buk-frame-r:after {
+    bottom: 0;
+    right: 1px;
+    background-position: -14px -14px;
+}
+
+.buk-frame-l:before {
+    top: 1px;
+    left: 1px;
+    background-position: 0 0;
+}
+
+.buk-frame-l:after {
+    bottom: 0;
+    left: 1px;
+    background-position: 0 -14px;
+}
+
+/* == Content related  == */
+
+.buk-image.pull-left {
+    margin: 0 20px 20px 0;
+}
+
+.buk-image.pull-right {
+    margin: 0 0 20px 20px;
+}
+
+/* == Adaptive design == */
+
+@media (max-width: 979px) {
+    .buk-menu {
+        width: 295px;
+    }
+
+    .buk-menu-gate {
+        width: 26px;
+    }
+}

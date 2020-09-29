@@ -2,22 +2,13 @@
 Buk is mobile-ready, multidimensional presentation tool with flexible navigation and controls designed under influence of board, well known educational attribute.
 
 Demo: [https://yakviter.com.ua/buk/](https://yakviter.com.ua/buk/)
-## Name and idea
-It may seem wierd but I spent a day iterating through possible variants searching for a great name. Final result I came with was even better then expected. Because of its symbolism.
-
-- Buk [bük] - means beech, a large tree with smooth grey bark and small nuts.
-- Bukovina, Bucovina - historical region of Ukraine and Romania named of buk, lovely place I live.
-- Book is homophone, kind of homonym, the most recognizable source of knowledge, don't forget what paper is made from.
-- Board, in Ukrainian board and plank are homonyms as well, it is written and spelled as "дошка" [do':shka].
-
-It perfectly combines idea and materia, its educational nature and representation.
 
 ## Quickstart & Requirements
 Buk depends on jQuery 1.8+, theme is based on Twitter Bootstrap 3.
 
 Recently buk is structure oriented tool. It is provided as boilerplate, which is easy to modify. Basically you need 4 items to start include jQuery, buk.js (presentation tool core), bootstrap.css (basic styles) and buk.css (theme).
 
-Follow initial structure or just use [index.html](https://github.com/softbeehive/buk/blob/master/index.html) as a start template.
+Start by reusing [index.html](https://github.com/softbeehive/buk/blob/master/src/index.html).
 
 ```html
 
